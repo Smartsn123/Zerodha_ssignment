@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<style>
+
+
+#col{
+    background-color:#F0FFFF;
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Nifty Top 10</a>
+        <ul class="right hide-on-med-and-down">
+          
+          <li><a href="">By Sunny Singh</a></li>
+          <li id ='lastupdate'><a href="sass.html">Sass</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div id='par'>
+</div>
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Happy Coding ! </h5>
+                <p class="grey-text text-lighten-4">For More Stay Tuned  !</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/profile.php?id=100001443917338">Facebook</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/Smartsn123">Github</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/sunny-singh-04956b65/">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+          </div>
+        </footer>
+
+</body>
+
+<script>
+var time =0;
+function fillcards(){
+    $.ajax({
+      type: 'POST',
+      url: "update",
+      contentType: "application/json",
+      processData: false,
+      data: {},
+      success: function(data) {
+        //alert(data);
+        $('#par').html(data)
+        time =0;
+    },
+      dataType: "text"
+    });
+}
+
+
+function updateTime(){
+    time+=1;
+    $('#lastupdate').html("Last Update : "+time.toString()+" sec ago ");
+
+}
+
+$( document ).ready(fillcards());
+
+setInterval(fillcards, 60000);
+setInterval(updateTime, 1000);
+
+</script>
+</html>
+
+
