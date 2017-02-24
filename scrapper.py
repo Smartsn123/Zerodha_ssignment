@@ -3,7 +3,6 @@ import redis
 import json
 import requests
 import urllib2
-import pandas as pd
 import json
 import webbrowser
 import time

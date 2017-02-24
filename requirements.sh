@@ -7,3 +7,4 @@ pip install redis
 pip install pandas
 pip install requests
 pip install urllib2
+pip instal cherrypy
