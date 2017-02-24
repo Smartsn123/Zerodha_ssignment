@@ -56,8 +56,11 @@ class Root:
 
 
 def cherry():
-    configfile = os.path.join(os.path.dirname(__file__),'server.conf')
-    cherrypy.quickstart(Root(),config =configfile )
+    cherrypy.config.update({'server.socket_port': 8080,
+                        'engine.autoreload.on': False,
+                        'log.access_file': './access.log',
+                        'log.error_file': './error.log'})
+    cherrypy.quickstart(Root() )
 
 if __name__ == '__main__':
     Thread(target = worker).start()
